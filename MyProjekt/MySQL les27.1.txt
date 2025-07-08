@@ -1,0 +1,47 @@
+1. Створюємо базу даних
+File -> New Querty Tab
+Робимо запит CREATE DATABASE my_database;
+та нажимаємо Execute
+Скріншот: 01_create_database
+
+2.Використовуємо запит USE my_database;
+Він говорить, що всі наступні команди будуть
+виконуватись у базі my_database
+Скріншот: 02_USE my_database
+
+3.Створення таблиці CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+age INT,
+email VARCHAR(100)
+);
+id INT AUTO_INCREMENT PRIMARY KEY — унікальний номер для кожного користувача,
+автоматично збільшується
+VARCHAR(100) — текст до 100 символів
+Скріншот: 03_create_table
+
+4. Вставка даних в таблицю
+INSERT INTO users (name, age, email)
+VALUES
+('John', 30, 'johne@example.com'),
+('Alice', 25, 'alice@example.com'),
+('Bob', 35, 'bob@example.com');
+Скріншот: 04_insert_into_users
+
+5. Вибірка всіх даних з таблиці
+SELECT * FROM users;
+Скриншот: 05_select_before_delete
+
+6.Видалення користувача з іменем Bob
+стикаємось з помилкокою 1175 через увімкнений safe mode
+Вимикаємо за допомогою команди SET SQL_SAFE_UPDATES = 0;
+Після чого успішно видаляємо користувача Bob
+Скриншот: 06_delete_bob
+
+7.Перевіряємо чи користувач Bob видалений
+SELECT * FROM users;
+Скріншот: 07_select_after_delete
+
+8.Зберігаємо у файл 
+File -> Save Script As.. 
+та обираємо куди зберегти
